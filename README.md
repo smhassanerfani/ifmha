@@ -1,45 +1,60 @@
 # IFMHA: Inventory of Field Measurement for Hydraulic Attributes
 
-## Dataset Field Attributes
-
-### NWIS Field Measurements
-For the compilation of IFMHA, field measurements were queried in a tab-separated format for each NWIS station and then parsed and converted into a unified data frame comprised of records for all sites. For this purpose, URL links for each USGS site station were first created using the list of site numbers in the HYDRoSWOT dataset. Then, field measurements for each site station were queried from the NWIS Web Interface using the URL links. Finally, the requested text file of each site was parsed into a unified data frame. 
-
-- IFMHA borrows `station_nm`, `dec_lat_va`, `dec_long_va`, `site_tp_cd`, `drain_area_va`, `contrib_drain_area_va` features 
-from [HYDRoSWOT](https://data.usgs.gov/datacatalog/data/USGS:57435ae5e4b07e28b660af55).
-
-- IFMHA includes `COMID`, `STATE_CD`, `STATE`, `DASqMi`, `DASqKm`, `LatSite`, `LonSite` as well as `FTYPE`, `StreamOrde`, `SLOPE` which are borrowed from NHDPlus_GageLoc and NHDPlus_NHDFlowline_Network of [NHDPlusV2](https://www.epa.gov/waterdata/get-nhdplus-national-hydrography-dataset-plus-data). 
-
-For more information check [`tauraat.ipynb`](https://github.com/smhassanerfani/si2022/blob/main/tauraat/tauraat.ipynb).
-
 ## Dataset Description
-TAURAAT can be considered as an updated version of 
-[HYDRoSWOT](https://www.sciencebase.gov/catalog/item/57435ae5e4b07e28b660af55) 
-– HYDRoacoustic dataset in support of Surface Water Oceanographic Topography. 
-TAURAAT includes 10050 site stations (out of 10081 sites represented by HYDRoSWOT), 
-and represents five important channel geometry and characteristics of streamflow (i.e., flow rate, stage, channel 
-width, channel area, and channel velocity) collected from the USGS stream gaging station (Surface-water: Field 
-measurements) network and includes 2,802,532 records of all different types of USGS field measurements methods
-(Table 1). The time span of the records starts from `1845-05-05 14:00:00` to `2022-10-24 12:58:01`.
 
-Table 1. The different types of USGS field measurements methods.
+IFMHA includes 2,802,532 field measurements collected at 10,050 USGS gage sites across the US. 
+The time span of these measurements is from `05-05-1845` to `10-24-2022`. IFMHA extends the HYDRoSWOT dataset with
+the entire record of field measurements within NWIS including different types of field measurement methods 
+(see Table 1). The number of unique gage sites included in IFMHA is 10,050 which is 31 sites less than HYDRoSWOT
+(17 of these stations are operated by an agency other than USGS, and the data for the other 14 stations are not 
+available on the USGS website). IFMHA augmented the NWIS field measurements by adding relevant attributes reported 
+in the NHDPlusV21 dataset.
 
-| Method  | Frequency | Method | Frequency | Method | Frequency |
-|---------|-----------|--------|-----------|--------|-----------|
-| Unknown | 1466349   | VELC   | 17984     | VIPYG  | 265       |
-| VADCP   | 452725    | VPYG   | 17304     | VOTT   | 26        |
-| VADV    | 373597    | VIPAA  | 955       | VTIME  | 16        |
-| VPAA    | 104457    | VICE   | 431       | VOPT   | 1         |
+Table 1. The different types of USGS streamflow field measurements methods.
 
-TAURAAT includes 11,876 records that do not provide any field measurements. As it is mentioned before, 31 site stations
-of HYDRoSWOT are not included in TAURAAT. 17 of these stations are operated by an agency other than USGS, and the data
-of other 14 stations are not available in USGS website anymore. Figure 1 shows the location and site number of these
-sites on the map.
+| Method | Description                                | Frequency | Percent |
+|--------|--------------------------------------------|-----------|---------|
+| UNSPE  | Unspecified                                | 1204516   | 43.19%  |
+| QSCMM  | Discharge, measured, midsection method     | 792169    | 28.40%  |
+| QADCP  | Discharge, measured, ADCP from moving boat | 437418    | 15.68%  |
+| OTHER  |                                            | 347104    | 12.45%  |
+| QFLUM  | Discharge, measured, flume                 | 3888      | 0.14%   |
+| QIDIR  | Discharge, measured, indirect method       | 2959      | 0.11%   |
+| QVOLM  | Discharge, measured, volumetric            | 900       | 0.03%   |
+| NONE   |                                            | 4         | 0.00%   |
+| ACOUS  | Acoustic Doppler Current Profile (ADCP)    | 2         | 0.00%   |
+| ESTIM  | Estimated                                  | 1         | 0.00%   |
+
+
+IFMHA is comprised of three main sources of data including HYDRoSWOT, NWIS field measurements, and NHDPlus V2 datasets.
+The order and process of incorporating each dataset for the compilation of IFMHA are depicted in Figure 1.
+The flowchart outlines the sequential steps involved in dataset adoption.
+
 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/excluded_sites.jpg">
-    Figure 1. Locations of 31 site stations of HYDRoSWOT which are not included in TAURAAT.
+    Figure 1. Flowchart illustrates the incorporation of data sources for the compilation of IFMHA.
 </p>
+
+## Dataset Field Attributes
+
+### NWIS Field Measurements
+For the compilation of IFMHA, field measurements were queried in a tab-separated format from 
+[NWIS Site Inventory](https://waterdata.usgs.gov/nwis/inventory) and then parsed and converted into a unified 
+data frame comprised of records for all sites. For this purpose, URL links for each USGS site station were first 
+created using the list of site numbers in the HYDRoSWOT dataset. Then, field measurements for each site station were 
+queried from the NWIS Web Interface using the URL links. Finally, the requested text file of each site was 
+parsed into a unified data frame. 
+
+### HYDRoSWOT
+IFMHA borrows `station_nm`, `dec_lat_va`, `dec_long_va`, `site_tp_cd`, `drain_area_va`, `contrib_drain_area_va` 
+features from [HYDRoSWOT](https://data.usgs.gov/datacatalog/data/USGS:57435ae5e4b07e28b660af55).
+
+### NHDPlusV2
+IFMHA includes `COMID`, `STATE_CD`, `STATE`, `DASqMi`, `DASqKm`, `LatSite`, `LonSite` as well as `FTYPE`,
+`StreamOrde`, `SLOPE` which are borrowed from NHDPlus_GageLoc and NHDPlus_NHDFlowline_Network of 
+[NHDPlusV2](https://www.epa.gov/waterdata/get-nhdplus-national-hydrography-dataset-plus-data). 
+
 
 ## Dataset Analysis
 After removing zero and missing values of three important columns including `discharge_va`, `gage_height_va`, and
