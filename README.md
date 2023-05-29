@@ -2,6 +2,9 @@
 
 ## Dataset Field Attributes
 
+### NWIS Field Measurements
+For the compilation of IFMHA, field measurements were queried in a tab-separated format for each NWIS station and then parsed and converted into a unified data frame comprised of records for all sites. For this purpose, URL links for each USGS site station were first created using the list of site numbers in the HYDRoSWOT dataset. Then, field measurements for each site station were queried from the NWIS Web Interface using the URL links. Finally, the requested text file of each site was parsed into a unified data frame. 
+
 - IFMHA borrows `station_nm`, `dec_lat_va`, `dec_long_va`, `site_tp_cd`, `drain_area_va`, `contrib_drain_area_va` features 
 from [HYDRoSWOT](https://data.usgs.gov/datacatalog/data/USGS:57435ae5e4b07e28b660af55).
 
