@@ -26,13 +26,14 @@ Table 1. The different types of USGS streamflow field measurements methods.
 | ESTIM  | Estimated                                  | 1         | 0.00%   |
 
 
-IFMHA is comprised of three main sources of data including HYDRoSWOT, NWIS field measurements, and NHDPlus V2 datasets.
+IFMHA consists of three main sources of data including HYDRoSWOT, NWIS field measurements, and NHDPlus V2 datasets.
 The order and process of incorporating each dataset for the compilation of IFMHA are depicted in Figure 1.
 The flowchart outlines the sequential steps involved in dataset adoption.
 
 
 <p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/excluded_sites.jpg">
+    <img src="https://github.com/smhassanerfani/ifmha/blob/main/figures/fig01.png?raw=ture"
+    alt="Main Sources of Data" width="100%" height="100%">
     Figure 1. Flowchart illustrates the incorporation of data sources for the compilation of IFMHA.
 </p>
 
@@ -47,10 +48,18 @@ queried from the NWIS Web Interface using the URL links. Finally, the requested 
 parsed into a unified data frame. 
 
 ### HYDRoSWOT
+HYDRoSWOT is an extensive collection of USGS cross-section surveys for supporting Surface Water Oceanographic Topography
+(SWOT). The dataset comprises over 200,000 records of USGS Acoustic Doppler Current Profiler discharge measurements 
+collected from the USGS streamgaging network. It offers a range of essential fields, including mean and maximum depth, 
+velocity, discharge, stage, and water-surface width.
 IFMHA borrows `station_nm`, `dec_lat_va`, `dec_long_va`, `site_tp_cd`, `drain_area_va`, `contrib_drain_area_va` 
 features from [HYDRoSWOT](https://data.usgs.gov/datacatalog/data/USGS:57435ae5e4b07e28b660af55).
 
 ### NHDPlusV2
+National Hydrography Dataset Plus (NHDPlus) is a national geospatial surface water framework including the features 
+and capabilities of the National Hydrography Dataset (NHD), the National Elevation Dataset (NED), and the Watershed 
+Boundary Dataset (WBD). NHDPlus integrates the vector NHD stream network and WBD hydrologic unit boundaries with the 
+NED gridded land surface.
 IFMHA includes `COMID`, `STATE_CD`, `STATE`, `DASqMi`, `DASqKm`, `LatSite`, `LonSite` as well as `FTYPE`,
 `StreamOrde`, `SLOPE` which are borrowed from NHDPlus_GageLoc and NHDPlus_NHDFlowline_Network of 
 [NHDPlusV2](https://www.epa.gov/waterdata/get-nhdplus-national-hydrography-dataset-plus-data). 
