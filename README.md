@@ -4,6 +4,10 @@
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
 </a>
 
+<a href="https://doi.org/10.1016/j.envsoft.2024.106136" target="_blank">
+    <img src="https://img.shields.io/badge/DOI-10.1016%2Fj.envsoft.2024.106136-lightgrey.svg" alt="DOI">
+</a>
+
 ## Dataset Access
 
 ### Working with Git LFS
