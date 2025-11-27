@@ -1,6 +1,35 @@
 # IFMHA: Inventory of Field Measurement for Hydraulic Attributes
 
-All the source codes used for this study are temporarily in this [GitHub repository](https://github.com/smhassanerfani/si2022/tree/main/tauraat). They will be moved to this repository in the near future. 
+**Working with Git LFS**
+
+This repository stores IFMHA dataset with Git LFS, use the steps below to install and fetch them.
+
+- **Install (macOS / Homebrew):**
+
+    ```bash
+    brew install git-lfs
+    git lfs install
+    git lfs version
+    ```
+- **Install (Ubuntu / Apt):**
+  
+    ```bash
+    sudo apt update
+    sudo apt install git-lfs
+    git lfs install
+    git lfs version
+    ```
+
+- **Clone + download LFS objects (automatic):**
+
+    ```bash
+    git clone https://github.com/smhassanerfani/ifmha.git
+    cd dataset
+    git lfs pull
+    ```
+
+
+Notes: use SSH or a Personal Access Token for private repos, and watch GitHub LFS storage/bandwidth quotas. If bandwidth is hit the 10 GB Pro limit, you can download the dataset directly using this [link](https://drive.google.com/file/d/1X3la64OP8Hpa6dAsqxMmRp0Ym2xJrJ5B/view?usp=sharing) in the Google Drive.
 
 
 ## Dataset Description
@@ -80,7 +109,7 @@ considered for following analyses.
 discharge plot for some sample sites are as follows:
 
 <p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_pos_dis.png">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_pos_dis.png?raw=ture">
     Figure 2. Site locations including only positive values for discharge.
 </p>
 
@@ -89,7 +118,7 @@ discharge plot for some sample sites are as follows:
 verses discharge plot for some sample sites are as follows:
 
 <p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_neg_dis_v2.png">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_neg_dis_v2.png?raw=ture">
     Figure 3. Site locations including both negative and positive values for discharge.
 </p>
 
@@ -97,7 +126,7 @@ Among sites having negative discharge in their records, there are still some cas
 discharge is more like sites with positive discharge.
 
 <p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_neg_dis_v1.png">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_neg_dis_v1.png?raw=ture">
     Figure 4. Site with negative/positive discharge that follow the behavior of sites with only positive discharge.
 </p>
 
@@ -105,7 +134,7 @@ These sites are generally located near the costal area or control points. We wil
 following analyses.
 
 <p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/neg_dis.jpg">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/neg_dis.jpg?raw=ture">
     Figure 5. Location of sites that includes both negative and positive values for discharge.
 </p>
 
@@ -133,7 +162,7 @@ way, all observations of a site can be summarized in one record.
 The histogram of discharge observations for 16 site stations which were randomly selected is shown in the Figure 6. 
 
 <p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_discharge_dist.png">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_discharge_dist.png?raw=ture">
     Figure 6. The histogram of channel discharge observations for different site stations.
 </p>
 
@@ -144,7 +173,7 @@ of best fitted distribution is shown in the Figure 7. This figure shows `lognorm
 of the site stations.  
 
 <p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/dist_freq_discharge.png">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/dist_freq_discharge.png?raw=ture">
     Figure 7. The frequency of best fitted distribution for channel discharge.
 </p>
 
@@ -155,14 +184,14 @@ stations does not follow same pattern. In some cases (indicated by red squares),
 than one peak.
 
 <p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_width_dist.png">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_width_dist.png?raw=ture">
     Figure 8. The histogram of channel width observations for different site stations.
 </p>
 
 The frequency of best fitted distribution for channel width is shown in the Figure 9.  This figure shows `cauchy` is
 the best fit for about 4,000 site stations. 
 <p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/dist_freq_width.png">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/dist_freq_width.png?raw=ture">
     Figure 9. The frequency of best fitted distribution for channel width.
 </p>
 
